@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++11 -g  -rdynamic CMakeFiles/main_2.dir/KOTYYYYY.cpp.o  -o main_2 

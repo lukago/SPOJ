@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++11 -g  -rdynamic CMakeFiles/main_4.dir/Krzyzak.cpp.o  -o main_4 

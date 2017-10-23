@@ -1,7 +1,0 @@
-/home/admin/studbaza/sem_5/wzaip/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/admin/studbaza/sem_5/wzaip/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/admin/studbaza/sem_5/wzaip/cmake-build-debug/CMakeFiles/main_5.dir
-/home/admin/studbaza/sem_5/wzaip/cmake-build-debug/CMakeFiles/main_4.dir
-/home/admin/studbaza/sem_5/wzaip/cmake-build-debug/CMakeFiles/main_3.dir
-/home/admin/studbaza/sem_5/wzaip/cmake-build-debug/CMakeFiles/main_2.dir
-/home/admin/studbaza/sem_5/wzaip/cmake-build-debug/CMakeFiles/main_1.dir

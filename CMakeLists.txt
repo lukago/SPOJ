@@ -22,3 +22,7 @@ add_executable(${BUILD_4} ${SOURCE_FILES_4})
 set(BUILD_5 main_5)
 set(SOURCE_FILES_5 mwpz2014l.cpp)
 add_executable(${BUILD_5} ${SOURCE_FILES_5})
+
+set(BUILD_6 main_6)
+set(SOURCE_FILES_6 BSHEEP.cpp)
+add_executable(${BUILD_6} ${SOURCE_FILES_6})

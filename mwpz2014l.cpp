@@ -110,5 +110,5 @@ int main()
                   << result.second.x << " " << result.second.y << "\n";
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }

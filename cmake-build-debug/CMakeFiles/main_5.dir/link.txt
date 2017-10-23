@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11 -g  -rdynamic CMakeFiles/main_5.dir/mwpz2014l.cpp.o  -o main_5 

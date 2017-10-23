@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/admin/studbaza/sem_5/wzaip/mwpz2014l.cpp
+algorithm
+-
+iostream
+-
+vector
+-
+cmath
+-
+limits
+-
+

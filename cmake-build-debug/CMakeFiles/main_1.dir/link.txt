@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11 -g  -rdynamic CMakeFiles/main_1.dir/AL_12_03.cpp.o  -o main_1 

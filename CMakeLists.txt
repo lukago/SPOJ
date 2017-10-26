@@ -26,3 +26,7 @@ add_executable(${BUILD_5} ${SOURCE_FILES_5})
 set(BUILD_6 main_6)
 set(SOURCE_FILES_6 BSHEEP.cpp)
 add_executable(${BUILD_6} ${SOURCE_FILES_6})
+
+set(BUILD_7 main_7)
+set(SOURCE_FILES_7 tprimes.cpp)
+add_executable(${BUILD_7} ${SOURCE_FILES_7})

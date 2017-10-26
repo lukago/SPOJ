@@ -11,16 +11,9 @@ struct Point
     double x;
     double y;
     int id;
-
-    bool operator<(const Point &other) const
-    {
-        if (y != other.y) return y < other.y;
-        if (x != other.x) return x < other.x;
-        return id < other.id;
-    }
 };
 
-double ccw(const Point &a, const Point &b, const Point &c)
+inline double ccw(const Point &a, const Point &b, const Point &c)
 {
     return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
 }
@@ -31,7 +24,11 @@ std::vector<Point> convexHull(std::vector<Point> &points)
     if (n == 1)return points;
     std::vector<Point> hull(2 * points.size());
 
-    std::sort(points.begin(), points.end());
+    sort(points.begin(), points.end(), [](const Point &a, const Point &b) {
+        if (a.y != b.y) return a.y < b.y;
+        if (a.x != b.x) return a.x < b.x;
+        return a.id < b.id;
+    });
 
     for (int i = 0; i < n; ++i) {
         while (k >= 2 && ccw(hull[k - 2], hull[k - 1], points[i]) <= 0) k--;

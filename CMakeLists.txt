@@ -30,3 +30,7 @@ add_executable(${BUILD_6} ${SOURCE_FILES_6})
 set(BUILD_7 main_7)
 set(SOURCE_FILES_7 tprimes.cpp)
 add_executable(${BUILD_7} ${SOURCE_FILES_7})
+
+set(BUILD_8 main_8)
+set(SOURCE_FILES_8 FACTORIZ.cpp)
+add_executable(${BUILD_8} ${SOURCE_FILES_8})

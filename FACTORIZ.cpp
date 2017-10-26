@@ -1,65 +1,82 @@
 #include <iostream>
 #include <vector>
-#include <unordered_set>
 
 #define MAX 8000000
+#define MAXP 800000
 
 bool primesFlags[MAX];
+int primes[MAXP];
+int pNum = 1;
 
-std::vector<int> factoriz(int num)
+using namespace std;
+
+void initPrimes()
 {
-    std::vector<int> factors;
-
-    if (num == 1 || num == 2) {
-        factors.push_back(num);
-        return factors;
-    }
-
-    while (num % 2 == 0) {
-        factors.push_back(2);
-        num /= 2;
-    }
-
-    for (int64_t i = 3; i < num; i += 2) {
-        if (primesFlags[i]) {
-            for (int64_t j = i * i; j < num; j += i) {
-                primesFlags[j] = false;
-            }
-            while (num % i == 0) {
-                num /= i;
-                factors.push_back(i);
-            }
-        }
-    }
-
-    if (num != 1) factors.push_back(num);
-
-    return factors;
-}
-
-int main()
-{
-    std::cin.tie(nullptr);
-    std::ios_base::sync_with_stdio(false);
-
     for (int i = 0; i < MAX; i++) {
         primesFlags[i] = true;
     }
 
+    for (int i = 3; i * i < MAX; i += 2) {
+        if (primesFlags[i]) {
+            primes[pNum++] = i;
+            for (int64_t j = i * i; j < MAX; j += i) {
+                primesFlags[j] = false;
+            }
+        }
+    }
+
+    primes[0] = 2;
+    for (int i = 3; i < MAX; i += 2) {
+        if (primesFlags[i]) {
+            primes[pNum++] = i;
+        }
+    }
+}
+
+vector<int> pfactor(int num)
+{
+    vector<int> factors;
+
+    if (num == 1) {
+        factors.push_back(num);
+        return factors;
+    }
+
+    for (int i = 0; 1LL * primes[i] * primes[i] <= num; i++) {
+        while (num % primes[i] == 0) {
+            factors.push_back(primes[i]);
+            num /= primes[i];
+        }
+    }
+
+    if (num > 1) {
+        factors.push_back(num);
+    }
+
+    return factors;
+}
+
+
+int main()
+{
+    cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
+
+    initPrimes();
+
     int num, t;
-    std::cin >> t;
+    cin >> t;
 
     while (t-- > 0) {
-        std::cin >> num;
+        cin >> num;
 
-        auto res = factoriz(num);
+        auto result = pfactor(num);
 
-        std::cout << res[0];
-        auto sz = res.size();
-        for (int i = 1; i < sz; i++) {
-            std::cout << "*" << res[i];
+        cout << result[0];
+        for (int i = 1; i < result.size(); i++) {
+            cout << "*" << result[i];
         }
-        std::cout << "\n";
+        cout << "\n";
     }
 
     return 0;

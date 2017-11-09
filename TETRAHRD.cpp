@@ -51,7 +51,7 @@ Mat mulMatMat(const Mat mat1, const Mat mat2)
     for (int row = 0; row < LEN; row++) {
         for (int col = 0; col < LEN; col++) {
             for (int col2 = 0; col2 < LEN; col2++) {
-                res.mat[row][col] += (mat1.mat[row][col2] * mat2.mat[col2][col]) % MOD;
+                res.mat[row][col] += (mat1.mat[row][col2] * mat2.mat[col2][col]);
                 res.mat[row][col] %= MOD;
             }
         }

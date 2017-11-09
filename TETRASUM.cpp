@@ -8,7 +8,7 @@ using namespace std;
 const uint64_t MOD = 1000000007;
 const int LEN = 5;
 
-const uint64_t matrix[LEN][LEN] = {
+const uint64_t MATRIX[LEN][LEN] = {
         {0, 1, 0, 0, 0},
         {0, 0, 1, 0, 0},
         {0, 0, 0, 1, 0},
@@ -82,7 +82,7 @@ uint64_t tetraSum(uint64_t m, uint64_t n)
 {
     uint64_t start[] = {0, 0, 0, 1, 1}, sum1 = 0, sum2 = 0;
     Mat mat(0);
-    memcpy(mat.mat, matrix, sizeof(matrix));
+    memcpy(mat.mat, MATRIX, sizeof(MATRIX));
 
     if (m > 3) sum1 = mulMatVec(fastPow(mat, m - 4), start);
 

@@ -1,5 +1,6 @@
-#include <iostream>
+// spoj: pl.spoj.com/users/redoran/
 
+#include <iostream>
 
 using namespace std;
 

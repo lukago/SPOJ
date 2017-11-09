@@ -1,3 +1,5 @@
+// spoj: pl.spoj.com/users/redoran/
+
 #include <iostream>
 #include <vector>
 

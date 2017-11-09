@@ -38,3 +38,11 @@ add_executable(${BUILD_8} ${SOURCE_FILES_8})
 set(BUILD_9 main_9)
 set(SOURCE_FILES_9 FACT0.cpp)
 add_executable(${BUILD_9} ${SOURCE_FILES_9})
+
+set(BUILD_10 main_10)
+set(SOURCE_FILES_10 KAMELNEO.cpp)
+add_executable(${BUILD_10} ${SOURCE_FILES_10})
+
+set(BUILD_11 main_11)
+set(SOURCE_FILES_11 TETRASUM.cpp)
+add_executable(${BUILD_11} ${SOURCE_FILES_11})

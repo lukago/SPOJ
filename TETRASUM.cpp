@@ -6,9 +6,9 @@
 using namespace std;
 
 const uint64_t MOD = 1000000007;
-const int len = 5;
+const int LEN = 5;
 
-const uint64_t matrix[len][len] = {
+const uint64_t matrix[LEN][LEN] = {
         {0, 1, 0, 0, 0},
         {0, 0, 1, 0, 0},
         {0, 0, 0, 1, 0},
@@ -18,42 +18,40 @@ const uint64_t matrix[len][len] = {
 
 struct Mat
 {
-    uint64_t mat[len][len] = {{0}};
+    uint64_t mat[LEN][LEN] = {{0}};
 
     explicit Mat(int val)
     {
         if (val == 1) {
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i < LEN; i++)
                 this->mat[i][i] = 1;
         }
     }
 };
 
-uint64_t mulMatVec(const Mat mat, const uint64_t vec[len])
+uint64_t mulMatVec(const Mat mat, const uint64_t vec[LEN])
 {
-    uint64_t resVec[len] = {0};
+    uint64_t resVec[LEN] = {0};
     Mat res(0);
 
-    for (int row = 0; row < len; row++) {
-        for (int col = 0; col < len; col++) {
+    for (int row = 0; row < LEN; row++) {
+        for (int col = 0; col < LEN; col++) {
             res.mat[row][col] = mat.mat[row][col] * vec[col];
             resVec[row] += res.mat[row][col];
         }
     }
 
-    return resVec[len - 1];
+    return resVec[LEN - 1];
 }
 
 Mat mulMatMat(const Mat mat1, const Mat mat2)
 {
     Mat res(0);
-    uint64_t tmp;
 
-    for (int row = 0; row < len; row++) {
-        for (int col = 0; col < len; col++) {
-            for (int col2 = 0; col2 < len; col2++) {
-                tmp = (mat1.mat[row][col2] * mat2.mat[col2][col]);
-                res.mat[row][col] += (tmp) % MOD;
+    for (int row = 0; row < LEN; row++) {
+        for (int col = 0; col < LEN; col++) {
+            for (int col2 = 0; col2 < LEN; col2++) {
+                res.mat[row][col] += (mat1.mat[row][col2] * mat2.mat[col2][col]) % MOD;
                 res.mat[row][col] %= MOD;
             }
         }

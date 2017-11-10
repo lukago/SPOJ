@@ -52,8 +52,8 @@ Mat mulMatMat(const Mat &mat1, const Mat &mat2)
         for (int col = 0; col < LEN; col++) {
             for (int col2 = 0; col2 < LEN; col2++) {
                 res.mat[row][col] += (mat1.mat[row][col2] * mat2.mat[col2][col]);
-                res.mat[row][col] %= MOD;
             }
+            res.mat[row][col] %= MOD;
         }
     }
 
@@ -81,14 +81,21 @@ Mat fastPow(const Mat &mat, uint64_t n)
 uint64_t tetraSum(uint64_t m, uint64_t n)
 {
     uint64_t start[] = {0, 0, 0, 1, 1}, sum1 = 0, sum2 = 0;
-    Mat mat(0);
+    Mat mat(0), mat1(0), mat2(0);
     memcpy(mat.mat, MATRIX, sizeof(MATRIX));
 
-    if (m > 3) sum1 = mulMatVec(fastPow(mat, m - 4), start);
+    if (m > 3) {
+        mat1 = fastPow(mat, m - 4);
+        sum1 = mulMatVec(mat1, start);
+    }
 
     if (n == 3) sum2 = 1;
     else if (n == 4) sum2 = 2;
-    else if (n > 4) sum2 = mulMatVec(fastPow(mat, n - 3), start);
+    else if (n > 4 && m <= 3) sum2 = mulMatVec(fastPow(mat, n - 3), start);
+    else if (n > 4) {
+        mat2 = fastPow(mat, n - m + 1);
+        sum2 = mulMatVec(mulMatMat(mat1, mat2), start);
+    }
 
     return (sum2 - sum1 + MOD) % MOD;
 }

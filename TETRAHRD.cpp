@@ -29,7 +29,7 @@ struct Mat
     }
 };
 
-uint64_t mulMatVec(const Mat mat, const uint64_t vec[LEN])
+uint64_t mulMatVec(const Mat &mat, const uint64_t vec[LEN])
 {
     uint64_t resVec[LEN] = {0};
     Mat res(0);
@@ -44,7 +44,7 @@ uint64_t mulMatVec(const Mat mat, const uint64_t vec[LEN])
     return resVec[LEN - 1];
 }
 
-Mat mulMatMat(const Mat mat1, const Mat mat2)
+Mat mulMatMat(const Mat &mat1, const Mat &mat2)
 {
     Mat res(0);
 
@@ -60,7 +60,7 @@ Mat mulMatMat(const Mat mat1, const Mat mat2)
     return res;
 }
 
-Mat fastPow(const Mat mat, uint64_t n)
+Mat fastPow(const Mat &mat, uint64_t n)
 {
     Mat ret(1);
     Mat cp = mat;

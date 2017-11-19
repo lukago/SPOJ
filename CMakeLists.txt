@@ -46,3 +46,11 @@ add_executable(${BUILD_10} ${SOURCE_FILES_10})
 set(BUILD_11 main_11)
 set(SOURCE_FILES_11 TETRAHRD.cpp)
 add_executable(${BUILD_11} ${SOURCE_FILES_11})
+
+set(BUILD_12 main_12)
+set(SOURCE_FILES_12 Biorythms.cpp)
+add_executable(${BUILD_12} ${SOURCE_FILES_12})
+
+set(BUILD_13 main_13)
+set(SOURCE_FILES_13 DPEQN.cpp)
+add_executable(${BUILD_13} ${SOURCE_FILES_13})

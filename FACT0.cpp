@@ -52,7 +52,7 @@ int main()
         if (num == 0)
             return 0;
 
-        fact(num);
+        multiples(num);
     }
 
     return 0;

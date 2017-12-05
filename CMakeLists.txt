@@ -54,3 +54,16 @@ add_executable(${BUILD_12} ${SOURCE_FILES_12})
 set(BUILD_13 main_13)
 set(SOURCE_FILES_13 DPEQN.cpp)
 add_executable(${BUILD_13} ${SOURCE_FILES_13})
+
+set(BUILD_14 zad1)
+set(SOURCE_FILES_14 zad1.cpp)
+add_executable(${BUILD_14} ${SOURCE_FILES_14})
+
+set(BUILD_15 main_15)
+set(SOURCE_FILES_15 PocketBook.cpp)
+add_executable(${BUILD_15} ${SOURCE_FILES_15})
+
+
+set(BUILD_16 main_16)
+set(SOURCE_FILES_16 FUNNUMS.cpp)
+add_executable(${BUILD_16} ${SOURCE_FILES_16})

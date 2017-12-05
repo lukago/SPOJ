@@ -5,59 +5,52 @@ using namespace std;
 const int N = 100;
 int a[N], x[N], y[N];
 
-inline int mulmod(int a, int b, int mod)
+inline int mulmod(int a, int b, int m)
 {
-    return int(uint64_t(a) * b % mod);
+    return int(int64_t(a) * b % m);
 }
 
-inline int decmod(int a, int b, int mod)
+int xgcd(int a, int b, int &pp, int &qq)
 {
-    a -= b;
-    if (a < 0) a += mod;
-    return a;
-}
+    int a0 = a, b0 = b;
+    int p = 1, q = 0;
+    int r = 0, s = 1, prevR, prevS;
+    int mod, quot;
 
-int xgcd(int m, int n, int &a, int &b, int mod)
-{
-    int xx = 0, yy = 1, x = 1, y = 0, quot;
-    while (true) {
-        quot = m / n;
-        m %= n;
-        if (!m) {
-            a = xx, b = yy;
-            return n;
-        }
-        x = decmod(x, mulmod(quot, xx, mod), mod);
-        y = decmod(y, mulmod(quot, yy, mod), mod);
-        quot = n / m, n %= m;
-        if (!n) {
-            a = x, b = y;
-            return m;
-        }
-        xx = decmod(xx, mulmod(quot, x, mod), mod);
-        yy = decmod(yy, mulmod(quot, y, mod), mod);
+    while (b != 0) {
+        mod = a % b;
+        quot = a / b;
+        a = b, b = mod;
+        prevR = r, prevS = s;
+        r = p - quot * r;
+        s = q - quot * s;
+        p = prevR, q = prevS;
     }
+
+    pp = p;
+    qq = q;
+    return p * a0 + q * b0;
 }
 
-void solve(int n, int b, int m)
+void printCongSol(int n, int b, int m)
 {
     b %= m;
-
     for (int i = 0; i < n; i++) {
         a[i] %= m;
     }
 
-    int gcdRes = a[0];
-    n--;
+    int gcdRes = a[0], p, q;
+    n = n - 1;
 
     for (int i = 0; i < n; i++) {
-        gcdRes = xgcd(gcdRes, a[i + 1], x[i], y[i], m);
+        gcdRes = xgcd(gcdRes, a[i + 1], p, q);
+        x[i] = p < 0 ? p % m + m : p % m;
+        y[i] = q < 0 ? q % m + m : q % m;
     }
+    gcdRes = xgcd(gcdRes, m, p, q);
+    p = p < 0 ? p % m + m : p % m;
 
-    int p, dummy;
-    gcdRes = xgcd(gcdRes, m, p, dummy, m);
-
-    if (b % gcdRes == 1) {
+    if (b % gcdRes) {
         cout << "NO\n";
         return;
     }
@@ -66,7 +59,7 @@ void solve(int n, int b, int m)
     x[n - 1] = mulmod(x[n - 1], c, m);
     y[n - 1] = mulmod(y[n - 1], c, m);
 
-    for (int i = n - 1; i >= 1; i++) {
+    for (int i = n - 1; i >= 1; i--) {
         x[i + 1] = y[i];
         x[i - 1] = mulmod(x[i - 1], x[i], m);
         y[i - 1] = mulmod(y[i - 1], x[i], m);
@@ -85,7 +78,7 @@ int main()
     std::cin.tie(nullptr);
     std::ios_base::sync_with_stdio(false);
 
-    int t, n, b, m;
+    int t, n, m, b;
     cin >> t;
 
     while (t-- > 0) {
@@ -93,8 +86,6 @@ int main()
         for (int i = 0; i < n; i++) cin >> a[i];
         cin >> b >> m;
 
-        solve(n, b, m);
+        printCongSol(n, b, m);
     }
-
-    return 0;
 }

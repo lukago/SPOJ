@@ -4,7 +4,7 @@ project(test_build)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(BUILD_1 main_1)
-set(SOURCE_FILES_1 AL_12_03.cpp)
+set(SOURCE_FILES_1 AL_12_03.cpp NHAY.cpp PHONELST.cpp VECTAR.cpp VECTAR.cpp PT07Z.cpp mst.cpp BALANCE.cpp PARTY.cpp kap.cpp)
 add_executable(${BUILD_1} ${SOURCE_FILES_1})
 
 set(BUILD_2 main_2)
@@ -63,7 +63,42 @@ set(BUILD_15 main_15)
 set(SOURCE_FILES_15 PocketBook.cpp)
 add_executable(${BUILD_15} ${SOURCE_FILES_15})
 
-
 set(BUILD_16 main_16)
 set(SOURCE_FILES_16 FUNNUMS.cpp)
 add_executable(${BUILD_16} ${SOURCE_FILES_16})
+
+set(BUILD_17 main_17)
+set(SOURCE_FILES_17 NHAY.cpp)
+add_executable(${BUILD_17} ${SOURCE_FILES_17})
+
+set(BUILD_18 main_18)
+set(SOURCE_FILES_18 PHONELST.cpp)
+add_executable(${BUILD_18} ${SOURCE_FILES_18})
+
+set(BUILD_19 main_19)
+set(SOURCE_FILES_19 VECTAR.cpp)
+add_executable(${BUILD_19} ${SOURCE_FILES_19})
+
+set(BUILD_20 main_20)
+set(SOURCE_FILES_20 BUGLIFE.cpp)
+add_executable(${BUILD_20} ${SOURCE_FILES_20})
+
+set(BUILD_21 main_21)
+set(SOURCE_FILES_21 PT07Z.cpp)
+add_executable(${BUILD_21} ${SOURCE_FILES_21})
+
+set(BUILD_22 main_22)
+set(SOURCE_FILES_22 mst.cpp)
+add_executable(${BUILD_22} ${SOURCE_FILES_22})
+
+set(BUILD_23 main_23)
+set(SOURCE_FILES_23 BALANCE.cpp)
+add_executable(${BUILD_23} ${SOURCE_FILES_23})
+
+set(BUILD_24 main_24)
+set(SOURCE_FILES_24 PARTY.cpp)
+add_executable(${BUILD_24} ${SOURCE_FILES_24})
+
+set(BUILD_25 main_25)
+set(SOURCE_FILES_25 kap.cpp)
+add_executable(${BUILD_25} ${SOURCE_FILES_25})
